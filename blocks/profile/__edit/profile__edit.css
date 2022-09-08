@@ -1,0 +1,27 @@
+.profile__edit{
+display: block;
+border: 1px solid #FFFFFF;
+width: 24px;
+height: 24px;
+grid-column: 2 / 2;
+grid-row: 1;
+margin: 37px 0 0 15px;
+background-image: url(../../../images/pancil.svg);
+background-color: #000000;
+background-repeat: no-repeat;
+background-position: center;
+cursor: pointer;
+}
+
+@media screen and (max-width: 700px) { 
+    .profile__edit {
+        grid-column: 2 / 2;
+        grid-row: 1 / 2;
+        width: 18px;
+        height: 18px;
+        margin: 39px 39px 0 0;
+    }
+}
+.profile__edit:hover{
+    opacity: 0.6;
+}

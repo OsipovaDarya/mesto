@@ -1,0 +1,25 @@
+.profile__add{
+    max-width: 150px;
+    max-height: 50px;
+    background-color: #000000;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    background-image: url(../../../images/krest.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 35px 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) { 
+    .profile__add{
+        grid-column: 1 / 1;
+        grid-row: auto;
+        max-width: 282px;
+        max-height: 50px;
+        margin: 0 19px;
+}
+}
+.profile__add:hover{
+    opacity: 0.6;
+}

@@ -1,0 +1,15 @@
+.element {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-height: 361px;
+}
+
+@media screen and (max-width: 768px) { 
+    .element{
+        margin: 0 19px;
+        max-width: 282px;
+}
+}
