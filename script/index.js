@@ -12,6 +12,7 @@ const popup = document.querySelector('.popup');
 
 openPopUp.addEventListener('click', () => {
     popup.classList.add('active');
+
 });
 
 closePopUp.addEventListener('click', () => {
@@ -31,7 +32,7 @@ function formSubmitHandler(evt) {
 
     titleName.textContent = nameValue;
     titleJob.textContent = jobValue;
-    popup.classList.add('popup_closed');
+    popup.classList.remove('active');
 }
 
 

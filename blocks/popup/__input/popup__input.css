@@ -13,3 +13,6 @@
         max-width: 238px;
 }
 }
+.popup__input::placeholder{
+    color: #000000;
+}
