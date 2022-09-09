@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
     .popup__submit-buttom{
         max-width: 238px;
         padding: 14px 82px;
@@ -25,5 +25,4 @@
 }
 .popup__submit-buttom:hover{
     opacity: 0.8;
-    
 }

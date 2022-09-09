@@ -3,12 +3,11 @@
     gap: 20px;
 }
 
-@media screen and (max-width: 700px) { 
+@media screen and (max-width: 700px) {
     .profile__info{
     display: grid;
     grid-template-rows: 1fr;
     gap: 10px;
-
     }
 }
 

@@ -8,10 +8,10 @@
     margin: 28px 0 0;
     padding-bottom: 14px;
 }
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
     .popup__input{
         max-width: 238px;
-}
+    }
 }
 .popup__input::placeholder{
     color: #000000;

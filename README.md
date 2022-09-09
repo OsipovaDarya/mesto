@@ -8,4 +8,4 @@
 
 **Ссылка на проект**
 
-https://osipovadarya.github.io/russian-travel/
+https://osipovadarya.github.io/mesto/

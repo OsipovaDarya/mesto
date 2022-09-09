@@ -9,8 +9,3 @@
     align-items: center;
     display: none;
 }
-.popup.active{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

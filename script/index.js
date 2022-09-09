@@ -11,12 +11,12 @@ const popup = document.querySelector('.popup');
 
 
 openPopUp.addEventListener('click', () => {
-    popup.classList.add('active');
+    popup.classList.add('popup_opened');
 
 });
 
 closePopUp.addEventListener('click', () => {
-    popup.classList.remove('active');
+    popup.classList.remove('popup_opened');
 });
 
 console.log(openPopUp, closePopUp);
@@ -32,7 +32,7 @@ function formSubmitHandler(evt) {
 
     titleName.textContent = nameValue;
     titleJob.textContent = jobValue;
-    popup.classList.remove('active');
+    popup.classList.remove('popup_opened');
 }
 
 

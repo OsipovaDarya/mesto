@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 768px) { 
     .element{
-        margin: 0 19px;
-        max-width: 282px;
-}
+    margin: 0 19px;
+    max-width: 282px;
+    }
 }
