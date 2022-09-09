@@ -16,8 +16,8 @@
     .popup__close-icon{
         width: 20px;
         height: 20px;
-        top: -40px;
-        right: 0px;
+        top: -38px;
+        right: 3px;
 }
 }
 .popup__close-icon:hover{
