@@ -1,15 +1,15 @@
 .element {
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-height: 361px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 282px;
 }
 
-@media screen and (max-width: 768px) { 
-    .element{
-    margin: 0 19px;
+@media screen and (max-width: 768px) {
+  .element {
+    margin: 0 auto;
     max-width: 282px;
-    }
+  }
 }

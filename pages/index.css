@@ -7,7 +7,6 @@
 /* page */
 @import url(../blocks/page/page.css);
 /* header */
-@import url(../blocks/header/__line/header__line.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/header/header.css);
 
