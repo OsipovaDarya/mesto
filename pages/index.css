@@ -3,7 +3,7 @@
 /* fonts */
 @import url(../vendor/fonts/fonts.css);
 /* roof */
-@import url(../blocks/roof/roof.css);
+@import url(../blocks/root/root.css);
 /* page */
 @import url(../blocks/page/page.css);
 /* header */
