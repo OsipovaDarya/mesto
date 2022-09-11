@@ -3,4 +3,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 430px;
+  width: 100%;
 }
