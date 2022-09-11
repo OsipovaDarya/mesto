@@ -25,3 +25,9 @@
 .profile__edit:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 350px) {
+  .profile__edit {
+    margin: 28px 10px 0 0;
+  }
+}
