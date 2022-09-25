@@ -159,7 +159,7 @@ function deleteImg(item) {
   item.closest('.element').remove();
 }
 
-const popupBigPhoto = document.querySelector('.popup__bigphoto')
+const popupBigPhoto = document.querySelector('.popup_bigphoto')
 function bigPopupImg(namecard, linkcard) {
   openPopUp(popupBigPhoto);
   namePhoto.src = linkcard;
