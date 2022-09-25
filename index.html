@@ -27,62 +27,51 @@
         <button class="profile__add" type="button"></button>
       </section>
       <section class="elements">
-        <article class="element">
-          <img class="element__mask-group" src="./images/maldivs.png" alt="остров в океане">
-          <div class="element__group">
-            <h2 class="element__text">Мальдивы</h2>
-            <button class="element__vector" type="button"></button>
+        <template class="element__tempate">
+          <div class="element">
+            <button class="element__remover"></button>
+            <img class="element__mask-group" src="" alt="">
+            <div class="element__group">
+              <h2 class="element__text"></h2>
+              <button class="element__vector" type="button"></button>
+            </div>
           </div>
-        </article>
-        <article class="element">
-          <img class="element__mask-group" src="./images/baikal-2.png" alt="замершее озеро">
-          <div class="element__group">
-            <h2 class="element__text">Байкал</h2>
-            <button class="element__vector" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__mask-group" src="./images/new-york.png" alt="большие небоскребы">
-          <div class="element__group">
-            <h2 class="element__text">Нью-Йорк</h2>
-            <button class="element__vector" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__mask-group" src="./images/dombai.png" alt="горы и лес">
-          <div class="element__group">
-            <h2 class="element__text">Домбай</h2>
-            <button class="element__vector" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__mask-group" src="./images/goraelbrus.png" alt="поле и на фоне горы">
-          <div class="element__group">
-            <h2 class="element__text">Горай Эльбрус</h2>
-            <button class="element__vector" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__mask-group" src="./images/karachevsk.jpg" alt="старинный храм">
-          <div class="element__group">
-            <h2 class="element__text">Карачаевск</h2>
-            <button class="element__vector" type="button"></button>
-          </div>
-        </article>
+        </template>
+
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup__autor">
       <div class="popup__body">
         <button class="popup__close" type="button"></button>
         <form name="popup__form" class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_name_name" name="name" type="text">
-          <input class="popup__input popup__input_name_job" name="job" type="text">
+          <input class="popup__input popup__input_name_name" name="name" type="text" placeholder="Жак-Ив Кусто">
+          <input class="popup__input popup__input_name_job" name="job" type="text" placeholder="Исследователь океана">
           <button class="popup__submit-buttom" type="submit">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup__mesto">
+      <div class="popup__body">
+        <button class="popup__close" type="button"></button>
+        <form name="popup__form" class="popup__container popup__form-mesto">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__input popup__input_name_mesto" name="mesto" type="text" placeholder="Название">
+          <input class="popup__input popup__input_name_photo" name="photo" type="text" placeholder="Ссылка на картинку">
+          <button class="popup__submit-buttom" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__bigphoto">
+      <div class="popup__body-img">
+        <figure class="popup__figure">
+          <button class="popup__close" type="button"></button>
+          <img class="popup__photo" src="#" alt="большое фото в попапе">
+          <figcaption class="popup__textimg"></figcaption>
+          </а>
       </div>
     </div>
   </div>
