@@ -1,39 +1,11 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
+const formElement = document.querySelector('.popup__container');
+const nameInput = document.querySelector('.popup__input_name_name');
+const jobInput = document.querySelector('.popup__input_name_job');
 
 
-
-let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('.popup__input_name_name');
-let jobInput = document.querySelector('.popup__input_name_job');
-
-
-let titleName = document.querySelector('.profile__name');
-let titleJob = document.querySelector('.profile__job');
+const titleName = document.querySelector('.profile__name');
+const titleJob = document.querySelector('.profile__job');
 
 const buttonOpenPopUp = document.querySelector('.profile__edit');
 const buttonClosePopUp = document.querySelectorAll('.popup__close');
@@ -48,7 +20,7 @@ const namePhoto = document.querySelector('.popup__photo');
 const nameLink = document.querySelector('.popup__textimg');
 
 const elementsSection = document.querySelector('.elements');
-
+const openBigPhoto = document.querySelector('.popup_bigphoto');
 const newCardPhoto = document.querySelector('.popup__input_name_photo');
 const newCardLink = document.querySelector('.popup__input_name_mesto');
 const templateElement = document.querySelector('.element__tempate').content;
@@ -67,22 +39,14 @@ buttonClosePopUp.forEach(button => {
     closePopUp(button.closest('.popup')));
 });
 
-function formSubmitHandler(evt) {
+function submitFormHandler(evt) {
   evt.preventDefault();
   titleJob.textContent = nameInput.value;
   titleName.textContent = jobInput.value;
   closePopUp(popupAutor);
 }
 
-//function CardSubmitHandler(evt) {
-//  evt.preventDefault();
-// const cardNews = {
-//   name: newCardPhoto.value,
-//    link: newCardLink.value
-//  };
-//  renderCard(cardNews);
-//  closePopUp(popupMesto);
-//}
+
 initialCards.forEach((item) => {
   addElement(item.name, item.link);
 });
@@ -107,27 +71,10 @@ function mestoAdd(evt) {
 
 //обработчик
 formMesto.addEventListener('submit', mestoAdd);
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', submitFormHandler);
 
 
-//для карточек
-//функция для карточек
-//function renderCard(cards) {
-/// const cardsElement = templateElement.cloneNode(true);
-/// cardsElement.querySelector('.element__text').textContent = cards.name;
-//  cardsElement.querySelector('.element__mask-group').src = cards.link;
-// cardsElement.querySelector('.element__mask-group').alt = cards.name;
-// typeElements.append(cardsElement);
-//  return cardsElement;
-//}
-//function typeElements(element) {
-//  element.querySelector('.element__vector').addEventListener('click', handleLike);
-// element.querySelector('.element__remover').addEventListener('click', handleRemover);
-//  element.querySelector('.element__mask-group').addEventListener('click', bigPhoto);
-//}
-
-
-function renderCard(cardsname, cardslink) {
+function createCard(cardsname, cardslink) {
   const cadsElement = templateElement.cloneNode(true);
   const elementName = cadsElement.querySelector('.element__text');
   const elementImage = cadsElement.querySelector('.element__mask-group');
@@ -147,7 +94,7 @@ function renderCard(cardsname, cardslink) {
 }
 
 function addElement(cardslink, cardsname) {
-  const newElement = renderCard(cardslink, cardsname);
+  const newElement = createCard(cardslink, cardsname);
   elementsSection.prepend(newElement);
 }
 
@@ -159,9 +106,8 @@ function deleteImg(item) {
   item.closest('.element').remove();
 }
 
-const popupBigPhoto = document.querySelector('.popup_bigphoto')
 function bigPopupImg(namecard, linkcard) {
-  openPopUp(popupBigPhoto);
+  openPopUp(openBigPhoto);
   namePhoto.src = linkcard;
   namePhoto.alt = namecard;
   nameLink.textContent = namecard;
