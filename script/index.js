@@ -37,8 +37,8 @@ let titleJob = document.querySelector('.profile__job');
 
 const buttonOpenPopUp = document.querySelector('.profile__edit');
 const buttonClosePopUp = document.querySelectorAll('.popup__close');
-const popupAutor = document.querySelector('.popup__autor');
-const popupMesto = document.querySelector('.popup__mesto');
+const popupAutor = document.querySelector('.popup_autor');
+const popupMesto = document.querySelector('.popup_mesto');
 const profileAdd = document.querySelector('.profile__add');
 const formMesto = document.querySelector('.popup__form-mesto');
 
