@@ -45,3 +45,4 @@
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/__body/popup__body-img.css);
 @import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/_bigphoto/popup_bigphoto.css);

@@ -41,8 +41,8 @@ buttonClosePopUp.forEach(button => {
 
 function submitFormHandler(evt) {
   evt.preventDefault();
-  titleJob.textContent = nameInput.value;
-  titleName.textContent = jobInput.value;
+  titleJob.textContent = jobInput.value;
+  titleName.textContent = nameInput.value;
   closePopUp(popupAutor);
 }
 
