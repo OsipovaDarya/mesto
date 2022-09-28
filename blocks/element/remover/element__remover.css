@@ -12,3 +12,7 @@
   display: block;
   cursor: pointer;
 }
+
+.element__remover:hover {
+  opacity: 0.5;
+}

@@ -61,28 +61,28 @@ buttonOpenPopUp.addEventListener('click', event => {
   nameInput.value = titleName.textContent;
   jobInput.value = titleJob.textContent;
 });
-function mestoAdd(evt) {
+function addMesto(evt) {
   evt.preventDefault();
   const inputMesto = newCardLink.value
-  const inputlinkImg = newCardPhoto.value
-  addElement(inputMesto, inputlinkImg);
+  const inputLinkImg = newCardPhoto.value
+  addElement(inputMesto, inputLinkImg);
   closePopUp(popupMesto);
 }
 
 //обработчик
-formMesto.addEventListener('submit', mestoAdd);
+formMesto.addEventListener('submit', addMesto);
 formElement.addEventListener('submit', submitFormHandler);
 
 
-function createCard(cardsname, cardslink) {
+function createCard(cardsName, cardsLink) {
   const cadsElement = templateElement.cloneNode(true);
   const elementName = cadsElement.querySelector('.element__text');
   const elementImage = cadsElement.querySelector('.element__mask-group');
-  elementName.textContent = cardsname;
-  elementImage.src = cardslink;
-  elementImage.alt = cardsname;
+  elementName.textContent = cardsName;
+  elementImage.src = cardsLink;
+  elementImage.alt = cardsName;
 
-  elementImage.addEventListener('click', (event) => bigPopupImg(cardsname, cardslink));
+  elementImage.addEventListener('click', (event) => showPopupImg(cardsName, cardsLink));
 
   const likeElement = cadsElement.querySelector('.element__vector');
   likeElement.addEventListener('click', (event) => like(likeElement));
@@ -93,8 +93,8 @@ function createCard(cardsname, cardslink) {
   return cadsElement;
 }
 
-function addElement(cardslink, cardsname) {
-  const newElement = createCard(cardslink, cardsname);
+function addElement(cardsLink, cardsName) {
+  const newElement = createCard(cardsLink, cardsName);
   elementsSection.prepend(newElement);
 }
 
@@ -106,9 +106,9 @@ function deleteImg(item) {
   item.closest('.element').remove();
 }
 
-function bigPopupImg(namecard, linkcard) {
+function showPopupImg(nameCard, linkCard) {
   openPopUp(openBigPhoto);
-  namePhoto.src = linkcard;
-  namePhoto.alt = namecard;
-  nameLink.textContent = namecard;
+  namePhoto.src = linkCard;
+  namePhoto.alt = nameCard;
+  nameLink.textContent = nameCard;
 }
