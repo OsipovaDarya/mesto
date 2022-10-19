@@ -28,16 +28,37 @@ const templateElement = document.querySelector('.element__tempate').content;
 //единая функция открытия попапов
 function openPopUp(item) {
   item.classList.add('popup_opened');
+  popups.addEventListener('keydown', closeByEscape);
 };
 
 //единая функция закрытия попап
 function closePopUp(item) {
   item.classList.remove('popup_opened');
+  popups.removeEventListener('keydown', closeByEscape);
 };
 buttonClosePopUp.forEach(button => {
   button.addEventListener('click', () =>
     closePopUp(button.closest('.popup')));
 });
+//функция закрытия по оверлею
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopUp(popup)
+    }
+    if (evt.target.classList.contains('popup__close')) {
+      closePopUp(popup)
+    }
+  })
+})
+
+//закрытие по esc
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('popup_opened');
+    closePopUp
+  }
+}
 
 
 
