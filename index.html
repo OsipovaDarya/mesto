@@ -46,22 +46,40 @@
     <div class="popup popup_autor">
       <div class="popup__body">
         <button class="popup__close" type="button"></button>
-        <form name="popup__form" class="popup__container">
+        <form name="popup__form" class="popup__container" novalidate>
+
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_name_name" name="name" type="text" placeholder="Жак-Ив Кусто">
-          <input class="popup__input popup__input_name_job" name="job" type="text" placeholder="Исследователь океана">
-          <button class="popup__submit-buttom" type="submit">Сохранить</button>
+
+          <input class="popup__input popup__input_name_name" id="name-input" name="name" minlength="2" maxlength="40"
+            type="text" placeholder="Жак-Ив Кусто" required>
+
+          <span class="popup__input-error name-input-error"></span>
+
+          <input class="popup__input popup__input_name_job" id="job-input" name="job" type="text" minlength="2"
+            maxlength="200" placeholder="Исследователь океана" required>
+
+          <span class="popup__input-error job-input-error"></span>
+          <button class="popup__submit-buttom popup__button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
     <div class="popup popup_mesto">
       <div class="popup__body">
         <button class="popup__close" type="button"></button>
-        <form name="popup__form" class="popup__container popup__form-mesto">
+        <form name="popup__form" class="popup__container popup__form-mesto" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_name_mesto" name="mesto" type="text" placeholder="Название">
-          <input class="popup__input popup__input_name_photo" name="photo" type="text" placeholder="Ссылка на картинку">
-          <button class="popup__submit-buttom" type="submit">Сохранить</button>
+          <input class="popup__input popup__input_name_mesto" name="mesto" id="name-mesto" type="text" minlength="2"
+            maxlength="30" placeholder="Название" required>
+
+          <span class="popup__input-error name-mesto-error"></span>
+
+          <input class="popup__input popup__input_name_photo" name="photo" id="name-photo" type="url"
+            placeholder="Ссылка на картинку" required>
+
+          <span class="popup__input-error name-photo-error"></span>
+
+          <button class="popup__submit-buttom popup__button popup__button_disabled" type="submit"
+            disabled>Сохранить</button>
         </form>
       </div>
     </div>
@@ -78,6 +96,7 @@
   </div>
   <script src="./script/card.js"></script>
   <script src="./script/index.js"></script>
+  <script src="./script/validate.js"></script>
 </body>
 
 </html>

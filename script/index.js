@@ -39,13 +39,17 @@ buttonClosePopUp.forEach(button => {
     closePopUp(button.closest('.popup')));
 });
 
+
+
 function submitFormHandler(evt) {
   evt.preventDefault();
   titleJob.textContent = jobInput.value;
   titleName.textContent = nameInput.value;
   closePopUp(popupAutor);
+  evt.submitter.classList.add('.popup__button_disabled');
+  evt.submitter.setAttribute('disabled', true);
+  formElement.reset();
 }
-
 
 initialCards.forEach((item) => {
   addElement(item.name, item.link);
@@ -65,8 +69,10 @@ function addMesto(evt) {
   evt.preventDefault();
   const inputMesto = newCardLink.value
   const inputLinkImg = newCardPhoto.value
+  evt.target.reset();
   addElement(inputMesto, inputLinkImg);
   closePopUp(popupMesto);
+
 }
 
 //обработчик
@@ -112,3 +118,4 @@ function showPopupImg(nameCard, linkCard) {
   namePhoto.alt = nameCard;
   nameLink.textContent = nameCard;
 }
+
