@@ -1,6 +1,6 @@
 .popup__button_disabled {
   opacity: 0.2;
-  cursor: default;
+  cursor: auto;
   border: 1px solid #000000;
   border-radius: 2px;
   background-color: transparent;
@@ -20,4 +20,8 @@
     line-height: 17px;
     margin-top: 38px;
   }
+}
+
+.popup__button_disabled:hover {
+  opacity: 0.2;
 }

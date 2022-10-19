@@ -3,11 +3,13 @@
   border-radius: 10px;
   background-color: #ffffff;
   max-width: 282px;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
   .element {
     margin: 0 auto;
     max-width: 282px;
+    width: 100%;
   }
 }
