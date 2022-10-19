@@ -22,13 +22,13 @@ const hideInputError = (formElement, inputElement) => {
 const toggleButtonState = (inputList, buttonElement) => {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
-    console.log(buttonElement);
+    // console.log(buttonElement);
     // сделай кнопку неактивной
     buttonElement.setAttribute('disabled', true);
     buttonElement.classList.add('popup__button_disabled');
 
   } else {
-    console.log(buttonElement);
+    // console.log(buttonElement);
     // иначе сделай кнопку активной
     buttonElement.removeAttribute('disabled');
     buttonElement.classList.remove('popup__button_disabled');
@@ -73,7 +73,7 @@ const hasInvalidInput = (inputList) => {
 }
 function disableSubmitButton(buttonElement) {
   buttonElement.classList.add(settings.inactiveButtonClass);
-  buttonElement.setAttribute("disabled", "disabled");
+  buttonElement.setAttribute("disabled");
 }
 
 
