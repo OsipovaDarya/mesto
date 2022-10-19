@@ -2,7 +2,7 @@
 const formElement = document.querySelector('.popup__container');
 const nameInput = document.querySelector('.popup__input_name_name');
 const jobInput = document.querySelector('.popup__input_name_job');
-
+const popups = document.querySelectorAll('.popup');
 
 const titleName = document.querySelector('.profile__name');
 const titleJob = document.querySelector('.profile__job');

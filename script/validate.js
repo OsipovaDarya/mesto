@@ -25,13 +25,13 @@ const toggleButtonState = (inputList, buttonElement) => {
     console.log(buttonElement);
     // сделай кнопку неактивной
     buttonElement.setAttribute('disabled', true);
-    buttonElement.classList.add('inactiveButtonClass');
+    buttonElement.classList.add('popup__button_disabled');
 
   } else {
     console.log(buttonElement);
     // иначе сделай кнопку активной
     buttonElement.removeAttribute('disabled');
-    buttonElement.classList.remove('inactiveButtonClass');
+    buttonElement.classList.remove('popup__button_disabled');
 
   }
 };
