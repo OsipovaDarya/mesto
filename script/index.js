@@ -28,13 +28,14 @@ const templateElement = document.querySelector('.element__tempate').content;
 //единая функция открытия попапов
 function openPopUp(item) {
   item.classList.add('popup_opened');
-  popups.addEventListener('keydown', closeByEscape);
+  document.addEventListener('keydown', closeByEscape);
+
 };
 
 //единая функция закрытия попап
 function closePopUp(item) {
   item.classList.remove('popup_opened');
-  popups.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('keydown', closeByEscape);
 };
 buttonClosePopUp.forEach(button => {
   button.addEventListener('click', () =>
