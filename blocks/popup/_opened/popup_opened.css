@@ -2,10 +2,10 @@
   display: flex;
   visibility: visible;
   transition: all 1s ease;
-  opacity: 0;
-}
-
-.popup_opened:hover {
-  transition: all 1s ease;
   opacity: 1;
 }
+
+/* .popup_opened:hover {
+  opacity: 1;
+  transition: all 1s ease;
+} */
