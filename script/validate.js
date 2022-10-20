@@ -1,5 +1,5 @@
 const setting = {
-  formSelector: '.popup',
+  formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
@@ -64,13 +64,13 @@ const enableValidation = (setting) => {
   });
 };
 
-const hasInvalidInput = (inputList, setting) => {
+const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
 
-function disableSubmitButton(buttonElement, setting) {
+function disableSubmitButton(buttonElement) {
   buttonElement.classList.add(setting.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
 }
