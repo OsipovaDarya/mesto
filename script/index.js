@@ -87,11 +87,14 @@ buttonOpenPopUp.addEventListener('click', event => {
   nameInput.value = titleName.textContent;
   jobInput.value = titleJob.textContent;
 });
+
 function addMesto(evt) {
   evt.preventDefault();
   const inputMesto = newCardLink.value
   const inputLinkImg = newCardPhoto.value
   evt.target.reset();
+
+  disableSubmitButton(evt.submitter, setting);
   addElement(inputMesto, inputLinkImg);
   closePopUp(popupMesto);
 
