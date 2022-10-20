@@ -56,8 +56,8 @@ popups.forEach((popup) => {
 //закрытие по esc
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('popup_opened');
-    closePopUp
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopUp(openedPopup);
   }
 }
 
