@@ -23,7 +23,7 @@ const elementsSection = document.querySelector('.elements');
 const openBigPhoto = document.querySelector('.popup_bigphoto');
 const newCardPhoto = document.querySelector('.popup__input_name_photo');
 const newCardLink = document.querySelector('.popup__input_name_mesto');
-const templateElement = document.querySelector('.element__tempate').content;
+const templateElement = document.querySelector('.element__tempate');
 
 //единая функция открытия попапов
 function openPopUp(item) {
@@ -37,10 +37,10 @@ function closePopUp(item) {
   item.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
 };
-buttonClosePopUp.forEach(button => {
-  button.addEventListener('click', () =>
-    closePopUp(button.closest('.popup')));
-});
+// buttonClosePopUp.forEach(button => {
+//   button.addEventListener('click', () =>
+//     closePopUp(button.closest('.popup')));
+// });
 //функция закрытия по оверлею
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
@@ -68,7 +68,7 @@ function submitFormHandler(evt) {
   titleJob.textContent = jobInput.value;
   titleName.textContent = nameInput.value;
   closePopUp(popupAutor);
-  evt.submitter.classList.add('.popup__button_disabled');
+  evt.submitter.classList.add(setting.inactiveButtonClass);
   evt.submitter.setAttribute('disabled', true);
   formElement.reset();
 }
@@ -92,11 +92,11 @@ function addMesto(evt) {
   evt.preventDefault();
   const inputMesto = newCardLink.value
   const inputLinkImg = newCardPhoto.value
-  evt.target.reset();
 
   disableSubmitButton(evt.submitter, setting);
   addElement(inputMesto, inputLinkImg);
   closePopUp(popupMesto);
+  evt.target.reset();
 
 }
 
@@ -106,22 +106,22 @@ formElement.addEventListener('submit', submitFormHandler);
 
 
 function createCard(cardsName, cardsLink) {
-  const cadsElement = templateElement.cloneNode(true);
-  const elementName = cadsElement.querySelector('.element__text');
-  const elementImage = cadsElement.querySelector('.element__mask-group');
+  const templateCopy = templateElement.content.cloneNode(true);
+  const elementName = templateCopy.querySelector('.element__text');
+  const elementImage = templateCopy.querySelector('.element__mask-group');
   elementName.textContent = cardsName;
   elementImage.src = cardsLink;
   elementImage.alt = cardsName;
 
-  elementImage.addEventListener('click', (event) => showPopupImg(cardsName, cardsLink));
+  elementImage.addEventListener('click', () => showPopupImg(cardsName, cardsLink));
 
-  const likeElement = cadsElement.querySelector('.element__vector');
-  likeElement.addEventListener('click', (event) => like(likeElement));
+  const likeElement = templateCopy.querySelector('.element__vector');
+  likeElement.addEventListener('click', () => like(likeElement));
 
-  const elementTrash = cadsElement.querySelector('.element__remover');
-  elementTrash.addEventListener('click', (event) => deleteImg(elementTrash));
+  const elementTrash = templateCopy.querySelector('.element__remover');
+  elementTrash.addEventListener('click', () => deleteImg(elementTrash));
 
-  return cadsElement;
+  return templateCopy;
 }
 
 function addElement(cardsLink, cardsName) {
@@ -138,9 +138,9 @@ function deleteImg(item) {
 }
 
 function showPopupImg(nameCard, linkCard) {
-  openPopUp(openBigPhoto);
   namePhoto.src = linkCard;
   namePhoto.alt = nameCard;
   nameLink.textContent = nameCard;
+  openPopUp(openBigPhoto);
 }
 
