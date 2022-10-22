@@ -23,7 +23,10 @@ const toggleButtonState = (inputList, buttonElement, setting) => {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList, setting)) {
     // сделай кнопку неактивной
-    disableSubmitButton
+    // buttonElement.setAttribute('disabled', true);
+    // buttonElement.classList.add(setting.inactiveButtonClass);
+    disableSubmitButton(buttonElement, setting);
+
   } else {
     // иначе сделай кнопку активной
     buttonElement.removeAttribute('disabled');

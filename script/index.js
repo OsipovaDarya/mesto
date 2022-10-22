@@ -23,7 +23,7 @@ const elementsSection = document.querySelector('.elements');
 const openBigPhoto = document.querySelector('.popup_bigphoto');
 const newCardPhoto = document.querySelector('.popup__input_name_photo');
 const newCardLink = document.querySelector('.popup__input_name_mesto');
-const templateElement = document.querySelector('.element__tempate');
+const templateElement = document.querySelector('.element__tempate').content;
 
 //единая функция открытия попапов
 function openPopUp(item) {
@@ -68,8 +68,9 @@ function submitFormHandler(evt) {
   titleJob.textContent = jobInput.value;
   titleName.textContent = nameInput.value;
   closePopUp(popupAutor);
-  evt.submitter.classList.add(setting.inactiveButtonClass);
-  evt.submitter.setAttribute('disabled', true);
+  // evt.submitter.classList.add(setting.inactiveButtonClass);
+  // evt.submitter.setAttribute('disabled', true);
+  disableSubmitButton(evt.submitter, setting);
   formElement.reset();
 }
 
@@ -106,7 +107,7 @@ formElement.addEventListener('submit', submitFormHandler);
 
 
 function createCard(cardsName, cardsLink) {
-  const templateCopy = templateElement.content.cloneNode(true);
+  const templateCopy = templateElement.querySelector('.element').cloneNode(true);
   const elementName = templateCopy.querySelector('.element__text');
   const elementImage = templateCopy.querySelector('.element__mask-group');
   elementName.textContent = cardsName;
