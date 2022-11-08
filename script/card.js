@@ -2,16 +2,14 @@ export class Card {
   constructor(item, templateElement, showPopupImg) {
     this._name = item.name;
     this._link = item.link;
-    this._template = templateElement;
+    this._template = document.querySelector(templateElement).content;
     this._showPopupImg = showPopupImg;
   }
 
   createCard() {
     this._cardTemplate = this._template.querySelector(".element").cloneNode(true);
     this._elementName = this._cardTemplate.querySelector(".element__text");
-    this._elementImage = this._cardTemplate.querySelector(
-      ".element__mask-group"
-    );
+    this._elementImage = this._cardTemplate.querySelector(".element__mask-group");
     this._elementName.textContent = this._name;
     this._elementImage.src = this._link;
     this._elementImage.alt = this._name;
@@ -39,7 +37,8 @@ export class Card {
   }
 
   _deleteImg() {
-    this._elementTrash.closest(".element").remove();
+    this._cardTemplate.remove();
+    this._cardTemplate = null
   }
 
   // _handleOpenPopup() {

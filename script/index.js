@@ -2,7 +2,7 @@ import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
 import { initialCards } from "./initialCards.js";
 
-const formElement = document.querySelector(".popup__container");
+// const formElement = document.querySelector(".popup__container");
 const nameInput = document.querySelector(".popup__input_name_name");
 const jobInput = document.querySelector(".popup__input_name_job");
 const popups = document.querySelectorAll(".popup");
@@ -10,24 +10,23 @@ const popups = document.querySelectorAll(".popup");
 const titleName = document.querySelector(".profile__name");
 const titleJob = document.querySelector(".profile__job");
 
-const buttonOpenPopUp = document.querySelector(".profile__edit");
-const buttonClosePopUp = document.querySelectorAll(".popup__close");
+const buttonOpenPopUpAutor = document.querySelector(".profile__edit");
 const popupAutor = document.querySelector(".popup_autor");
 const popupMesto = document.querySelector(".popup_mesto");
 const profileAdd = document.querySelector(".profile__add");
 const formMesto = document.querySelector(".popup__form-mesto");
-
+const formAuthot = document.querySelector(".popup__form-autor")
 const bigPhoto = document.querySelector(".popup__photo");
 
 const namePhoto = document.querySelector(".popup__photo");
 const nameLink = document.querySelector(".popup__textimg");
 
 const elementsSection = document.querySelector(".elements");
-const openBigPhoto = document.querySelector(".popup_bigphoto");
+const photoBigOpen = document.querySelector(".popup_bigphoto");
 const newCardPhoto = document.querySelector(".popup__input_name_photo");
 const newCardLink = document.querySelector(".popup__input_name_mesto");
 const templateElement = document.querySelector(".element__tempate").content;
-
+const templateSelector = ".element__tempate";
 
 const setting = {
   formSelector: ".popup__container",
@@ -49,20 +48,15 @@ function closePopUp(item) {
   item.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeByEscape);
 }
-// buttonClosePopUp.forEach(button => {
-//   button.addEventListener('click', () =>
-//     closePopUp(button.closest('.popup')));
-// });
-//функция закрытия по оверлею
+
+
+// функция закрытия по оверлею
 popups.forEach((popup) => {
-  popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
       closePopUp(popup);
     }
-    if (evt.target.classList.contains("popup__close")) {
-      closePopUp(popup);
-    }
-  });
+  })
 });
 
 //закрытие по esc
@@ -73,12 +67,11 @@ function closeByEscape(evt) {
   }
 }
 
-function submitFormHandler(evt) {
+function submitFormHandlerAuthor(evt) {
   evt.preventDefault();
   titleJob.textContent = jobInput.value;
   titleName.textContent = nameInput.value;
   closePopUp(popupAutor);
-  formElement.reset();
 }
 
 //вызвали функцию
@@ -86,7 +79,7 @@ profileAdd.addEventListener("click", () => {
   openPopUp(popupMesto);
 });
 
-buttonOpenPopUp.addEventListener("click", (event) => {
+buttonOpenPopUpAutor.addEventListener("click", (event) => {
   openPopUp(popupAutor);
   nameInput.value = titleName.textContent;
   jobInput.value = titleJob.textContent;
@@ -101,15 +94,18 @@ function addMesto(evt) {
     name: inputMesto,
     link: inputLinkImg,
   };
-
+  console.log("1");
   addElement(cardData);
+  // mestoPopupSubmitButton.classList.add(setting.inactiveButtonClass);
+  // mestoPopupSubmitButton.setAttribute("disabled", true);
+  // popupMestoValidation.disableSubmitButton();
   closePopUp(popupMesto);
   evt.target.reset();
 }
 
 //обработчик
 formMesto.addEventListener("submit", addMesto);
-formElement.addEventListener("submit", submitFormHandler);
+formAuthot.addEventListener("submit", submitFormHandlerAuthor);
 
 initialCards.forEach((item) => {
   addElement(item);
@@ -121,7 +117,7 @@ function addElement(item) {
 }
 
 function createCard(initialCards) {
-  const card = new Card(initialCards, templateElement, showPopupImg);
+  const card = new Card(initialCards, templateSelector, showPopupImg);
 
   return card.createCard();
 }
@@ -130,7 +126,7 @@ function showPopupImg(nameCard, linkCard) {
   namePhoto.src = linkCard;
   namePhoto.alt = nameCard;
   nameLink.textContent = nameCard;
-  openPopUp(openBigPhoto);
+  openPopUp(photoBigOpen);
 }
 
 const popupAuthorValidation = new FormValidator(setting, popupAutor);
