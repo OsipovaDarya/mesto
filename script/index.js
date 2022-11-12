@@ -106,8 +106,6 @@ function addMesto(evt) {
   };
   console.log("1");
   addElement(cardData);
-  // mestoPopupSubmitButton.classList.add(setting.inactiveButtonClass);
-  // mestoPopupSubmitButton.setAttribute("disabled", true);
   popupAuthorValidation.disableSubmitButton();
   closePopUp(popupMesto);
   evt.target.reset();
@@ -116,7 +114,6 @@ function addMesto(evt) {
 //обработчик
 formMesto.addEventListener("submit", addMesto);
 formAuthot.addEventListener("submit", submitFormHandlerAuthor);
-
 initialCards.forEach((item) => {
   addElement(item);
 });
