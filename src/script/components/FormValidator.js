@@ -49,18 +49,13 @@ export class FormValidator {
 
   _setEventListeners() {
     this._inputList = Array.from(this._formElement.querySelectorAll(this._setting.inputSelector));
-    // this._buttonElement = this._formElement.querySelector(this._setting.submitButtonSelector);
-    // this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
     });
-    // this._formElement.addEventListener("submit", (e) => {
-    //   e.preventDefault();
-    //   this.disableSubmitButton();
-    // });
+
   };
 
   _hasInvalidInput() {

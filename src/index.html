@@ -12,12 +12,12 @@
 <body class="root">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="логотип место">
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип место">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="./images/avatar.jpg" alt="мужчина">
+          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="мужчина">
           <div class="profile__text">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <h2 class="profile__job">Исследователь океана</h2>
@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <script type="module" src="script/index.js"></script>
+  <script type="module" src="/src/pages/index.js"></script>
 </body>
 
 </html>
