@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
+const { web } = require('webpack');
 
 module.exports = {
   entry: './src/pages/index.js',
@@ -61,5 +62,5 @@ module.exports = {
     port: 9000,
     open: true
   },
-  // devtool: 'source-map'
+  devtool: 'source-map'
 };

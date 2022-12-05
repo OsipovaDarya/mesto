@@ -46,5 +46,6 @@ export class Card {
 
   _deleteImg() {
     this._element.remove();
+    this._element = null;
   }
 }
