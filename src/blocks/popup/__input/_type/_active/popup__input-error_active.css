@@ -4,16 +4,13 @@
 }
 
 .popup__input-error {
-  /* visibility: visible; */
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  /* position: absolute;
-  top: 150px; */
+
   display: block;
   min-height: 20px;
-  /* height: 100vh; */
   margin-top: 5px;
 }
 
