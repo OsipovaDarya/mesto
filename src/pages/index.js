@@ -23,7 +23,7 @@ const buttonopenAutor = document.querySelector(".profile__edit");
 const buttonopenAvatar = document.querySelector(".profile__button")
 
 
-const popupAutor = document.querySelector(".popup_autor");
+const popupAutor = document.querySelector(".popup__autor");
 const popupMesto = document.querySelector(".popup_mesto");
 const profileAdd = document.querySelector(".profile__add");
 const popupAvatar = document.querySelector(".popup__avatar")
