@@ -23,10 +23,10 @@ const buttonopenAutor = document.querySelector(".profile__edit");
 const buttonopenAvatar = document.querySelector(".profile__button")
 
 
-const popupAutor = document.querySelector(".popup__autor");
+const popupAutor = document.querySelector(".popup_autor");
 const popupMesto = document.querySelector(".popup_mesto");
 const profileAdd = document.querySelector(".profile__add");
-const popupAvatar = document.querySelector(".popup__avatar")
+const popupAvatar = document.querySelector(".popup_avatar")
 
 const formMesto = popupMesto.querySelector("form");
 const formAuthot = popupAutor.querySelector("form");
@@ -49,7 +49,7 @@ const popupAutorForm = new PopupWithForm(
   popupAutorSelector,
   submitFormHandlerAuthor,
 );
-const popupDelete = new PopupWithForm('.popup__delete')
+const popupDelete = new PopupWithForm('.popup_delete')
 
 
 const popupAvatarForm = new PopupWithForm(popupAvatarSelector,
