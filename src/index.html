@@ -17,10 +17,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="мужчина">
+          <div>
+            <button class="profile__button"></button>
+            <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="мужчина">
+          </div>
           <div class="profile__text">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <h2 class="profile__job">Исследователь океана</h2>
+            <h1 class="profile__name"></h1>
+            <h2 class="profile__job"></h2>
           </div>
           <button class="profile__edit" type="button"></button>
         </div>
@@ -33,7 +36,10 @@
             <img class="element__mask-group" src="/" alt="картинки">
             <div class="element__group">
               <h2 class="element__text"></h2>
-              <button class="element__vector" type="button"></button>
+              <div>
+                <button class="element__vector" type="button"></button>
+                <p class="element__like"></p>
+              </div>
             </div>
           </div>
         </template>
@@ -90,6 +96,27 @@
           <img class="popup__photo" src="#" alt="большое фото в попапе">
           <figcaption class="popup__textimg"></figcaption>
         </figure>
+      </div>
+    </div>
+    <div class="popup popup__delete">
+      <div class="popup__body">
+        <button class="popup__close" type="button"></button>
+        <form name="popup__form" class="popup__container  popup__form" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button class="popup__submit-buttom popup__button" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__avatar">
+      <div class="popup__body">
+        <button class="popup__close" type="button"></button>
+        <form name="popup__form" class="popup__container  popup__form" novalidate>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <input class="popup__input popup__input_name_avatar" name="avatar" id="name-avatar" type="url"
+            placeholder="Изменить аватар" required>
+          <span class="popup__input-error name-avatar-error"></span>
+          <button class="popup__submit-buttom popup__button" type="submit">Сохранить</button>
+        </form>
       </div>
     </div>
   </div>
