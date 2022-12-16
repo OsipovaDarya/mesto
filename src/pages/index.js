@@ -190,11 +190,7 @@ function createCard(item) {
   const cardItem = card.generateCard();
 
   return cardItem;
-
-
 }
-
-// defaultCardList.renderItems(initialCards);
 
 
 popupBigPhoto.setEventListeners();
@@ -203,36 +199,3 @@ popupMestoForm.setEventListeners();
 popupDelete.setEventListeners();
 popupAvatarForm.setEventListeners();
 
-
-// function createCard(item) {
-//   const card = new Card(item, templateSelector, showPopupImg,
-//     (id) => {
-//       popupDelete.open()
-//       popupDelete.changeHandleSubmit(() => {
-//         api.deleteCards(id)
-//           .then(() => {
-//             card.deleteImg()
-//             popupDelete.close()
-//           })
-//       })
-//     },
-//     (id) => {
-//       if (card.hasLikes()) {
-//         api.deletelikes(id)
-//           .then(res => {
-//             card.addLikes(res.likes)
-//           })
-//       } else {
-//         api.addNewlike(id)
-//           .then(res => {
-//             card.addLikes(res.likes)
-//           })
-//       }
-//     }
-//   );
-//   const cardItem = card.generateCard();
-
-//   return cardItem;
-
-
-// }
