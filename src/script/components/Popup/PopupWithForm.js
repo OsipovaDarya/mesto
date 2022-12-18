@@ -24,6 +24,7 @@ export default class PopupWithForm extends Popup {
     });
     return inputsData;
   }
+
   changeHandleSubmit(newHandleSubmit) {
     this._handleSubmit = newHandleSubmit
   }

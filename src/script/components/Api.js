@@ -5,21 +5,25 @@ export default class Api {
     this._baseUrl = baseUrl;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  };
+
   getInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log)
-
+      .then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(this._baseUrl + `/cards`, {
       headers: this._headers
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log())
+      .then(this._checkResponse);
   }
 
   editProfile(name, about) {
@@ -31,8 +35,7 @@ export default class Api {
         about
       })
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log())
+      .then(this._checkResponse);
   }
 
   addNewCard(name, link) {
@@ -44,8 +47,7 @@ export default class Api {
         link: link,
       })
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log())
+      .then(this._checkResponse);
   }
 
   deleteCards(cardId) {
@@ -53,16 +55,14 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log('fsdf'))
+      .then(this._checkResponse);
   }
   addNewlike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log())
+      .then(this._checkResponse);
   }
 
   deletelikes(cardId) {
@@ -70,8 +70,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log())
+      .then(this._checkResponse);
   }
 
   changeAvatar(avatar) {
@@ -82,16 +81,8 @@ export default class Api {
         avatar: avatar
       })
     })
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log("error1"))
+      .then(this._checkResponse);
   }
 
 }
 
-export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
-  headers: {
-    authorization: 'c9823303-b55f-4738-a9da-237c09a74944',
-    'Content-Type': 'application/json'
-  }
-});

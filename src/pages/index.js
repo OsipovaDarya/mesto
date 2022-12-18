@@ -1,5 +1,17 @@
 import { FormValidator } from "../script/components/FormValidator.js";
 import { Card } from "../script/components/Card.js";
+import {
+  nameInput,
+  jobInput,
+  buttonopenAutor,
+  buttonopenAvatar,
+  profileAdd,
+  formMesto,
+  formAuthot,
+  formAvatar,
+  templateSelector,
+  setting
+} from "../script/utils/constans.js"
 
 import Section from "../script/components/Section.js";
 import {
@@ -12,36 +24,8 @@ import PopupWithImage from "../script/components/Popup/PopupWithImage.js";
 import PopupWithForm from "../script/components/Popup/PopupWithForm.js";
 import UserInfo from "../script/components/UserInfo.js";
 import "./index.css"
-import { api } from "../script/components/Api.js"
+import Api from "../script/components/Api"
 
-
-const nameInput = document.querySelector(".popup__input_name_name");
-const jobInput = document.querySelector(".popup__input_name_job");
-
-//аватар
-const buttonopenAutor = document.querySelector(".profile__edit");
-const buttonopenAvatar = document.querySelector(".profile__button")
-
-
-const popupAutor = document.querySelector(".popup_autor");
-const popupMesto = document.querySelector(".popup_mesto");
-const profileAdd = document.querySelector(".profile__add");
-const popupAvatar = document.querySelector(".popup_avatar")
-
-const formMesto = popupMesto.querySelector("form");
-const formAuthot = popupAutor.querySelector("form");
-const formAvatar = popupAvatar.querySelector("form")
-
-const templateSelector = ".element__tempate";
-
-const setting = {
-  formSelector: ".popup__container",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__input-error_active",
-};
 
 
 const popupBigPhoto = new PopupWithImage(bigPhotoSelector);
@@ -74,6 +58,14 @@ const userInform = new UserInfo({
   avatar: ".profile__avatar"
 });
 
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
+  headers: {
+    authorization: 'c9823303-b55f-4738-a9da-237c09a74944',
+    'Content-Type': 'application/json'
+  }
+});
+
 
 
 let userId
@@ -87,38 +79,39 @@ Promise.all([api.getInfo(), api.getInitialCards()])
 
 
 function submitFormHandlerAvatar(value) {
-  popupAvatarForm.renderLoading(true)
+  popupAvatarForm.renderLoading(true);
   api.changeAvatar(value.avatar)
     .then(user => {
       userInform.setUserAvatar(user.avatar)
       popupAvatarForm.close()
     })
+    .catch((err) => {
+      console.log(err);
+    })
     .finally(() => {
-      popupAvatarForm.renderLoading(false)
+      popupAvatarForm.renderLoading(false);
     });
 }
 
 
-
-
-
 buttonopenAvatar.addEventListener("click", () => {
   popupAvatarForm.open();
-  popupAvatarFormValidation.enableValidation
+  popupAvatarFormValidation.disableSubmitButton();
 });
 
 
-
 function submitFormHandlerAuthor({ name, job }) {
-  popupAutorForm.renderLoading(true)
+  popupAutorForm.renderLoading(true);
   api.editProfile(name, job)
     .then((item) => {
       userInform.setUserInfo(item.name, item.about);
       popupAutorForm.close();
-      // userInform.setUserAvatar(avatar)
+    })
+    .catch((err) => {
+      console.log(err);
     })
     .finally(() => {
-      popupAvatarForm.renderLoading(false)
+      popupAutorForm.renderLoading(false);
     });
 }
 
@@ -144,14 +137,17 @@ profileAdd.addEventListener("click", () => {
 });
 
 function addMesto(data) {
-  popupMestoForm.renderLoading(true)
+  popupMestoForm.renderLoading(true);
   api.addNewCard(data.name, data.link)
     .then((e) => {
       defaultCardList.addItem(createCard(e))
       popupMestoForm.close();
     })
+    .catch((err) => {
+      console.log(err);
+    })
     .finally(() => {
-      popupAvatarForm.renderLoading(false)
+      popupMestoForm.renderLoading(false);
     });
 }
 
