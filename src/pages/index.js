@@ -76,6 +76,9 @@ Promise.all([api.getInfo(), api.getInitialCards()])
     userInform.setUserAvatar(user.avatar);
     defaultCardList.renderItems(cards.reverse());
   })
+  .catch(err => {
+    console.log(err);
+  });
 
 
 function submitFormHandlerAvatar(value) {
@@ -166,18 +169,26 @@ function createCard(item) {
               card.deleteImg()
               popupDelete.close()
             })
+            .catch((err) => {
+              console.log(err);
+            })
         })
       }, likeCick: (cardId) => {
         api.addNewlike(cardId)
           .then((i) => {
             card.havelike(i)
           })
-
+          .catch((err) => {
+            console.log(err);
+          })
       },
     deleteLikeClick: (cardId) => {
       api.deletelikes(cardId)
         .then((i) => {
           card.havelike(i)
+        })
+        .catch((err) => {
+          console.log(err);
         })
     }
   },
